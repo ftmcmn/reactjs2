@@ -13,6 +13,17 @@ import Products from "./components/07-Props2/products";
 import Gallery from "./components/08-Image/gallery";
 import Image from "./components/08-Image/image";
 import ProfieCard from "./components/09-ProfileCard/profile-card";
+import BootstrapDinamik from "./components/10-Bootstrap/bootstrap-dinamik";
+import Icon from "./components/11-Icons/icon";
+import Events from "./components/12-Events/events";
+import Shop from "./components/13-Products/shop";
+import State from "./components/14-UseState/state";
+import Stateless from "./components/14-UseState/stateless";
+import Counter from "./components/15-Counter/counter";
+import Progres from "./components/15-Counter/progres";
+import Birthday from "./components/16-Birthday/birthday";
+import UseEffect from "./components/17-UseEffect/useEffect";
+import CountryFilter from "./components/18-Country-filter/country-filter";
 
 function App() {
   return (
@@ -30,14 +41,25 @@ function App() {
       {/* <Clock2 textColor="yellow" bgColor="blue" /> */}
       {/* <Image /> */}
       {/* <Gallery /> */}
-      <ProfieCard
+      {/*  <ProfieCard
         avatar="hzn.jpg"
         name="Fatma Çimen"
         location="Turkey, Yozgat"
         shot="3"
         followers="52879"
         following="45"
-      />
+      /> */}
+      {/* <BootstrapDinamik /> */}
+      {/* <Icon /> */}
+      {/* <Events /> */}
+      {/* <Shop /> */}
+      {/* <Stateless /> */}
+      {/* <State /> */}
+      {/* <Counter /> */}
+      {/* <Progres /> */}
+      {/* <Birthday /> */}
+      {/* <UseEffect /> */}
+      <CountryFilter />
     </>
   );
 }

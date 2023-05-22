@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "image":"people1.jpg",
+        "age":18
+    },
+
+    {
+        "id": 2,
+        "name": "Jane Doe",
+        "image":"people2.jpg",
+        "age":20
+    },
+
+    {
+        "id": 3,
+        "name": "John Smith",
+        "image":"people3.jpg",
+        "age":22
+    },
+
+    {
+        "id": 4,
+        "name": "Jane Smith",
+        "image":"people4.jpg",
+        "age":24
+    }
+
+]

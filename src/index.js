@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import "bootstrap/scss/bootstrap.scss";
+//import "bootstrap"; // This line is not necessary because we are using the CDN link in the index.html file.
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
