@@ -1,0 +1,12 @@
+.about-us {
+  background-color: aqua;
+  color: white;
+  padding: 2rem;
+  margin: 2rem 0;
+  transform: translateX(150%);
+  transition: transform 1s ease-in-out;
+
+  &.active {
+    transform: translateX(0);
+  }
+}

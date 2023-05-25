@@ -1,3 +1,4 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Hello from "./components/01-Hello.js/hello";
 import Jsx4 from "./components/03-Jsx/jsx4";
 import Jsx5 from "./components/03-Jsx/jsx5";
@@ -24,10 +25,41 @@ import Progres from "./components/15-Counter/progres";
 import Birthday from "./components/16-Birthday/birthday";
 import UseEffect from "./components/17-UseEffect/useEffect";
 import CountryFilter from "./components/18-Country-filter/country-filter";
+import Scroll from "./components/19-UseRef/scroll";
+import UserCards from "./components/20-Feach-users/user-cards";
+import Countries from "./components/21-Axios-Countries/countries";
+import ParentComp from "./components/22-Child-to-Parent/parent-comp";
+import ToDoApp from "./components/23-TodoApp/toDoApp";
+import Form1 from "./components/24-Form/form1";
+import Form2 from "./components/24-Form/form2";
+import Form3 from "./components/24-Form/form3";
+import Form4 from "./components/24-Form/form4";
+import Form5 from "./components/24-Form/form5";
+import Header from "./components/00-Home/header/header";
+import { Col, Container, Row } from "react-bootstrap";
+import Menu from "./components/00-Home/menu/menu";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
+      <Header />
+
+      <Container>
+        <Row>
+          <Col xs={12} md={8} lg={9}>
+            <Menu />
+          </Col>
+          <Col xs={12} md={4} lg={3}>
+            <Routes>
+              <Route path="/hello" element={<Hello />} />
+              <Route path="/jsx4" element={<Jsx4 />} />
+              <Route path="/jsx5" element={<Jsx5 />} />
+              <Route path="/jsx6" element={<Jsx6 />} />
+              <Route path="/style1" element={<Style1 />} />
+            </Routes>
+          </Col>
+        </Row>
+      </Container>
       {/*  <Hello /> */}
       {/* <Jsx5 /> */}
       {/*   <Jsx6 /> */}
@@ -59,8 +91,18 @@ function App() {
       {/* <Progres /> */}
       {/* <Birthday /> */}
       {/* <UseEffect /> */}
-      <CountryFilter />
-    </>
+      {/* <CountryFilter /> */}
+      {/* <Scroll /> */}
+      {/*  <UserCards /> */}
+      {/* <Countries /> */}
+      {/* <ParentComp /> */}
+      {/* <ToDoApp /> */}
+      {/* <Form1 /> */}
+      {/* <Form2 /> */}
+      {/* <Form3 /> */}
+      {/*  <Form4 /> */}
+      {/* <Form5 /> */}
+    </BrowserRouter>
   );
 }
 
