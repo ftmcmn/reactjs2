@@ -38,42 +38,67 @@ import Form5 from "./components/24-Form/form5";
 import Header from "./components/00-Home/header/header";
 import { Col, Container, Row } from "react-bootstrap";
 import Menu from "./components/00-Home/menu/menu";
+import StoreContext from "./store";
+import Exchange from "./components/25-context-api/exchange";
+import { FcNfcSign } from "react-icons/fc";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Header />
+  const [currencies, setCurrencies] = useState({});
 
-      <Container>
-        <Row>
-          <Col xs={12} md={8} lg={9}>
-            <Menu />
-          </Col>
-          <Col xs={12} md={4} lg={3}>
-            <Routes>
-              <Route path="/hello" element={<Hello />} />
-              <Route path="/jsx4" element={<Jsx4 />} />
-              <Route path="/jsx5" element={<Jsx5 />} />
-              <Route path="/jsx6" element={<Jsx6 />} />
-              <Route path="/style1" element={<Style1 />} />
-            </Routes>
-          </Col>
-        </Row>
-      </Container>
-      {/*  <Hello /> */}
-      {/* <Jsx5 /> */}
-      {/*   <Jsx6 /> */}
-      {/* <Style1 /> */}
-      {/* <Style2 /> */}
-      {/*  <Style3 /> */}
-      {/* <Style4 /> */}
-      {/* <Clock1 /> */}
-      {/* <Gretings /> */}
-      {/* <Products /> */}
-      {/* <Clock2 textColor="yellow" bgColor="blue" /> */}
-      {/* <Image /> */}
-      {/* <Gallery /> */}
-      {/*  <ProfieCard
+  const loadData = async () => {
+    try {
+      const resp = await axios.get(
+        "https://api.frankfurter.app/latest?from=TRY"
+      );
+      setCurrencies(resp.data.rates);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  return (
+    <StoreContext.Provider value={{ currencies, setCurrencies }}>
+      <BrowserRouter>
+        <Header />
+
+        <Container>
+          <Row>
+            <Col md={2}>
+              <Menu />
+            </Col>
+            <Col md={10}>
+              <Routes>
+                <Route path="/hello" element={<Hello />} />
+                <Route path="/jsx4" element={<Jsx4 />} />
+                <Route path="/jsx5" element={<Jsx5 />} />
+                <Route path="/jsx6" element={<Jsx6 />} />
+                <Route path="/style1" element={<Style1 />} />
+                <Route path="/exchange" element={<Exchange />} />
+                <Route path="/todoApp" element={<ToDoApp />} />
+              </Routes>
+            </Col>
+          </Row>
+        </Container>
+        {/*  <Hello /> */}
+        {/* <Jsx5 /> */}
+        {/*   <Jsx6 /> */}
+        {/* <Style1 /> */}
+        {/* <Style2 /> */}
+        {/*  <Style3 /> */}
+        {/* <Style4 /> */}
+        {/* <Clock1 /> */}
+        {/* <Gretings /> */}
+        {/* <Products /> */}
+        {/* <Clock2 textColor="yellow" bgColor="blue" /> */}
+        {/* <Image /> */}
+        {/* <Gallery /> */}
+        {/*  <ProfieCard
         avatar="hzn.jpg"
         name="Fatma Çimen"
         location="Turkey, Yozgat"
@@ -81,28 +106,29 @@ function App() {
         followers="52879"
         following="45"
       /> */}
-      {/* <BootstrapDinamik /> */}
-      {/* <Icon /> */}
-      {/* <Events /> */}
-      {/* <Shop /> */}
-      {/* <Stateless /> */}
-      {/* <State /> */}
-      {/* <Counter /> */}
-      {/* <Progres /> */}
-      {/* <Birthday /> */}
-      {/* <UseEffect /> */}
-      {/* <CountryFilter /> */}
-      {/* <Scroll /> */}
-      {/*  <UserCards /> */}
-      {/* <Countries /> */}
-      {/* <ParentComp /> */}
-      {/* <ToDoApp /> */}
-      {/* <Form1 /> */}
-      {/* <Form2 /> */}
-      {/* <Form3 /> */}
-      {/*  <Form4 /> */}
-      {/* <Form5 /> */}
-    </BrowserRouter>
+        {/* <BootstrapDinamik /> */}
+        {/* <Icon /> */}
+        {/* <Events /> */}
+        {/* <Shop /> */}
+        {/* <Stateless /> */}
+        {/* <State /> */}
+        {/* <Counter /> */}
+        {/* <Progres /> */}
+        {/* <Birthday /> */}
+        {/* <UseEffect /> */}
+        {/* <CountryFilter /> */}
+        {/* <Scroll /> */}
+        {/*  <UserCards /> */}
+        {/* <Countries /> */}
+        {/* <ParentComp /> */}
+        {/* <ToDoApp /> */}
+        {/* <Form1 /> */}
+        {/* <Form2 /> */}
+        {/* <Form3 /> */}
+        {/*  <Form4 /> */}
+        {/* <Form5 /> */}
+      </BrowserRouter>
+    </StoreContext.Provider>
   );
 }
 

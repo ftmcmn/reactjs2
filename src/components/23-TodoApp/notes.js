@@ -1,11 +1,18 @@
 import React from "react";
 import Note from "./note";
-import { Container } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 
-const Notes = () => {
+const Notes = (props) => {
+  const { notes, deleteNote, upDateNote } = props;
   return (
     <Container>
-      <Note />
+      <Row>
+        {notes.map((note, index) => (
+          <Col key={index}>
+            <Note {...note} deleteNote={deleteNote} upDateNote={upDateNote} />
+          </Col>
+        ))}
+      </Row>
     </Container>
   );
 };

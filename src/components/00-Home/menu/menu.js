@@ -20,6 +20,12 @@ const Menu = () => {
         <li>
           <Link to="/style1">Style1</Link>
         </li>
+        <li>
+          <Link to="/exchange">Exchange</Link>
+        </li>
+        <li>
+          <Link to="/todoApp">ToDoApp</Link>
+        </li>
       </ul>
     </nav>
   );

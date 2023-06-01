@@ -1,23 +1,34 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
-const NoteForm = (props) => {
-  const [todo, setTodo] = useState("");
+const NoteForm = ({ createNote }) => {
+  const [message, setMessage] = useState("");
   return (
-    <div>
-      <div className="mt-3">Title</div>
+    <Form>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>ToDo</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Enter ToDo"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+      </Form.Group>
 
-      <input
-        type="text"
-        name=""
-        id=""
-        className="mt-3 d-block"
-        onChange={(e) => setTodo(e.target.value)}
-      />
-      <Button variant="primary" className="mt-3" onClick={props.arrYap(todo)}>
-        Create Note
+      <Button
+        variant="warning"
+        type="submit"
+        onClick={(e) => {
+          e.preventDefault();
+
+          createNote(message);
+
+          setMessage("");
+        }}
+      >
+        Add
       </Button>
-    </div>
+    </Form>
   );
 };
 
